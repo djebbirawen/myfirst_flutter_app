@@ -1,34 +1,36 @@
-// ignore_for_file: prefer_const_constructors, import_of_legacy_library_into_null_safe, deprecated_member_use
+// ignore_for_file: prefer_const_constructors, import_of_legacy_library_into_null_safe, deprecated_member_use, non_constant_identifier_names
+//import 'package:flutter/scheduler.dart';
+import 'package:signup/components/rounded_button.dart';
 import 'package:signup/constants.dart';
 import 'package:flutter/material.dart';
-
-//import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:signup/screens/Login/login_screen.dart';
+import 'package:signup/screens/Signup/components/nav_bar.dart';
+import 'package:signup/screens/Signup/signup_screen.dart';
+//import 'package:lottie/lottie.dart';
 import 'package:signup/screens/Welcome/components/background.dart';
-
-import 'package:signup/RaisedButton.dart';
+import 'package:signup/screens/users/sign1.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_declarations
 
     // ignore: sized_box_for_whitespace
     Size size = MediaQuery.of(context).size;
-    var myGradient;
     return Background(
+        child: SingleChildScrollView(
       child: SafeArea(
         child: Column(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
-            SizedBox(height: 80.0),
+            SizedBox(height: 10.0),
             Image.asset(
               "assets/images/logo.png",
               width: size.width * 0.5,
             ),
-            SizedBox(height: 45.0),
+            SizedBox(height: 15.0), // was 45.0
+
             Padding(
               padding: const EdgeInsets.fromLTRB(20.0, 10.0, 0, 8.0),
               child: Text('Application de livraison collaboratif ',
@@ -59,43 +61,46 @@ class Body extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 80.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: size.width * 0.35,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        // ignore: prefer_const_literals_to_create_immutables
-                        colors: [kPrimaryColor, kPrimaryLightColor]),
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                  child: ClipRRect(
-                    //borderRadius: BorderRadius.circular(18),
-                    child: FlatButton(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 20, horizontal: 40.0),
-                        //color: kPrimaryColor,
+            SizedBox(height: size.height * 0.05),
 
-                        onPressed: () {},
-                        child: Text(
-                          'LOGIN',
-                          style: TextStyle(color: Colors.white),
-                        )),
+            RoundedButton(
+              text: "Login",
+              press: () {
+                // ignore: unused_local_variable
+                // SchedulerBinding.instance!.addPostFrameCallback((_) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginScreen();
+                    },
                   ),
-                ),
-                SizedBox(width: 30.0),
-                FlatButton(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 20, horizontal: 40.0),
-                    onPressed: () {},
-                    child: Text('SIGN UP')),
-              ],
+                );
+                // });
+              },
+              key: null,
+              color: kPrimaryColor,
+            ),
+            SizedBox(width: 20.0),
+            RoundedButton(
+              text: "Sign Up ",
+              color: kPrimaryLightColor,
+              textColor: Colors.grey.shade900,
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return userscreen();
+                    },
+                  ),
+                );
+              },
+              key: null,
             ),
           ],
         ),
       ),
-    );
+    ));
   }
 }
