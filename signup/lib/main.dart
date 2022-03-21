@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:signup/Details/detailsScreen.dart';
 import 'package:signup/constants.dart';
+import 'package:signup/main_screen_nav.dart';
+import 'package:signup/main_screen_navF.dart';
 import 'package:signup/screens/Welcome/welcome_screen.dart';
+//import 'package:signup/screens/Welcome/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +22,10 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: const WelcomeScreen(),
+      // home: const WelcomeScreen(),
+      //home: const MainScreen(),
+      //home: const MainScreenF(),
+      home: DetailsScreen(),
     );
   }
 }

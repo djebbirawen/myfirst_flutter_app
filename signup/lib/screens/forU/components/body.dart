@@ -1,16 +1,16 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-
+import 'package:signup/Details/components/body.dart';
+import 'package:signup/Details/detailsScreen.dart';
 import 'package:signup/components/rounded_button.dart';
 import 'package:signup/constants.dart';
-import 'package:signup/main_screen_nav.dart';
-import 'package:signup/screens/Home/home_screen.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Container(
       width: double.infinity,
       height: size.height,
@@ -23,19 +23,19 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           Image.asset(
-            "assets/images/loginSuccess.png",
-            height: size.height * 0.6, //40%
+            "assets/images/done.png",
+            height: size.height * 0.7, //40%
             width: double.infinity,
           ),
           Container(
               padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
               alignment: Alignment.centerLeft,
               child: Text(
-                'Bienvenue ',
+                'La livraison est pour',
                 overflow: TextOverflow.visible,
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                  height: -2.171875,
+                  height: -4.171875,
                   fontSize: 34.0,
                   fontFamily: 'Work Sans',
                   fontWeight: FontWeight.w700,
@@ -46,11 +46,11 @@ class Body extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
               alignment: Alignment.centerLeft,
               child: Text(
-                'sur notre réseau',
+                'vous !',
                 overflow: TextOverflow.visible,
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                  height: -0.756,
+                  height: -3.171875,
                   fontSize: 34.0,
                   fontFamily: 'Work Sans',
                   fontWeight: FontWeight.w700,
@@ -58,18 +58,15 @@ class Body extends StatelessWidget {
                 ),
               )),
           SizedBox(
-            height: size.height * 0.15,
-          ),
-          SizedBox(
             width: size.width * 0.6,
             child: RoundedButton(
-              text: "Back to home",
+              text: "Retour",
               press: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return MainScreen();
+                      return DetailsScreen();
                     },
                   ),
                 );

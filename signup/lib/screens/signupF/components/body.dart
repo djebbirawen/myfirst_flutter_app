@@ -10,6 +10,7 @@ import 'package:signup/screens/Signup/components/background.dart';
 import 'package:signup/screens/Signup/components/or_divider.dart';
 import 'package:signup/screens/Signup/components/social_icon.dart';
 import 'package:signup/screens/login_success/login_sucess_screen.dart';
+import 'package:signup/screens/login_successF/login_sucess_screen.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -199,7 +200,7 @@ class _BodyState extends State<Body> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LoginSuccessScreen();
+                      return LoginSuccessScreenF();
                     },
                   ),
                 );

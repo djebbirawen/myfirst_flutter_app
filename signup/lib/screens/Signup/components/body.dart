@@ -21,6 +21,15 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  final _ConName = TextEditingController();
+  final _ConPren = TextEditingController();
+  final _ConEmail = TextEditingController();
+
+  final _ConAdress = TextEditingController();
+  final _ConCIN = TextEditingController();
+  final _Contlf = TextEditingController();
+  final _ConPass = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -43,10 +52,6 @@ class _BodyState extends State<Body> {
                 color: Color.fromARGB(255, 41, 35, 92),
               ),
             ),
-            /* Image.asset(
-              "assets/images/sign.png",
-              width: size.width * 0.5,
-            ),*/
             Center(
               child: Lottie.network(
                 'https://assets4.lottiefiles.com/packages/lf20_yqhwn4pd.json',
@@ -54,22 +59,12 @@ class _BodyState extends State<Body> {
               ),
             ),
             SizedBox(height: size.height * 0.01),
-            /* Center(
-              child: Lottie.network(
-                'https://lottiefiles.com/16885-delivery',
-                height: size.height * 0.35,
-              ),
-            ),*/
-
-            /* SvgPicture.asset(
-              "assets/icons/signup.svg",
-              height: size.height * 0.35,
-            ),*/
             Padding(
               padding: const EdgeInsets.fromLTRB(60.0, 10.0, 60, 10.0),
               child: Column(
                 children: [
                   TextFormField(
+                    controller: _ConName,
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
@@ -82,14 +77,12 @@ class _BodyState extends State<Body> {
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
                             color: Colors.grey),
-                        // hintText: 'EMAIL',
-                        // hintStyle: ,
-
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
                   ),
 
                   TextFormField(
+                    controller: _ConPren,
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
@@ -106,6 +99,7 @@ class _BodyState extends State<Body> {
                             borderSide: BorderSide(color: kPrimaryColor))),
                   ),
                   TextFormField(
+                    controller: _ConEmail,
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
@@ -124,6 +118,7 @@ class _BodyState extends State<Body> {
                             borderSide: BorderSide(color: kPrimaryColor))),
                   ),
                   TextFormField(
+                    controller: _ConAdress,
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
@@ -161,6 +156,7 @@ class _BodyState extends State<Body> {
                   )),
 
                   TextFormField(
+                    controller: _ConCIN,
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
@@ -177,6 +173,7 @@ class _BodyState extends State<Body> {
                             borderSide: BorderSide(color: kPrimaryColor))),
                   ),
                   TextFormField(
+                    controller: _Contlf,
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
@@ -193,6 +190,7 @@ class _BodyState extends State<Body> {
                             borderSide: BorderSide(color: kPrimaryColor))),
                   ),
                   TextField(
+                    controller: _ConPass,
                     decoration: InputDecoration(
                         labelText: 'Mot De Passe  ',
                         labelStyle: TextStyle(

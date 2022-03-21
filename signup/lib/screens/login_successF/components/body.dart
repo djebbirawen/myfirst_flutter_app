@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:signup/components/rounded_button.dart';
 import 'package:signup/constants.dart';
 import 'package:signup/main_screen_nav.dart';
+import 'package:signup/main_screen_navF.dart';
 import 'package:signup/screens/Home/home_screen.dart';
 
 class Body extends StatelessWidget {
@@ -63,13 +64,13 @@ class Body extends StatelessWidget {
           SizedBox(
             width: size.width * 0.6,
             child: RoundedButton(
-              text: "Back to home",
+              text: "Revenir à la page d'accuil",
               press: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return MainScreen();
+                      return MainScreenF();
                     },
                   ),
                 );
