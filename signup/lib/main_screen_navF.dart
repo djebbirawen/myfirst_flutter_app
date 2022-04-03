@@ -6,11 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:signup/constants.dart';
 import 'package:signup/screens/Add/editPage.dart';
-import 'package:signup/screens/Home/home_screen.dart';
+
 import 'package:signup/screens/Notifications/NotifScreen.dart';
-import 'package:signup/screens/Profil/ProfilScreen.dart';
+
+import 'package:signup/screens/clientHome/home_screenClient.dart';
 
 import 'package:signup/screens/wallet/wallet_screen.dart';
+
+import 'screens/Profil_fournisseur/ProfilScreen.dart';
 
 class MainScreenF extends StatefulWidget {
   const MainScreenF({Key? key}) : super(key: key);
@@ -24,11 +27,11 @@ class _MainScreenFState extends State<MainScreenF> {
   // GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   // ignore: non_constant_identifier_names
   final Screen = [
-    HomeScreen(),
+    HomeScreenF(),
     WalletScreen(),
     EditScreen(),
     NotifScreen(),
-    ProfilPage()
+    ProfilPageF()
   ];
   @override
   Widget build(BuildContext context) {

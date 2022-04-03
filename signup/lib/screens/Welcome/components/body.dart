@@ -4,9 +4,7 @@ import 'package:signup/components/rounded_button.dart';
 import 'package:signup/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:signup/screens/Login/login_screen.dart';
-import 'package:signup/screens/Signup/components/nav_bar.dart';
-import 'package:signup/screens/Signup/signup_screen.dart';
-//import 'package:lottie/lottie.dart';
+
 import 'package:signup/screens/Welcome/components/background.dart';
 import 'package:signup/screens/users/sign1.dart';
 

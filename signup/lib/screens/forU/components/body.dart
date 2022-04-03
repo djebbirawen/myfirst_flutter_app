@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:signup/Details/components/body.dart';
+
 import 'package:signup/Details/detailsScreen.dart';
 import 'package:signup/components/rounded_button.dart';
 import 'package:signup/constants.dart';

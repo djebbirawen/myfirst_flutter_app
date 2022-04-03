@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:signup/components/rounded_button.dart';

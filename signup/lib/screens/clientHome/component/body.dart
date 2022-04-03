@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:signup/Details/components/body.dart';
-import 'package:signup/Details/detailsScreen.dart';
 import 'package:signup/constants.dart';
 
 //import 'package:signup/screens/Login/components/background.dart';
@@ -87,30 +85,18 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                               margin: EdgeInsets.only(right: 0, top: 5),
                               child: Row(
                                 children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) {
-                                            return DetailsScreen();
-                                          },
-                                        ),
-                                      ); 
-                                    },
-                                    child: Container(
-                                      width: 130,
-                                      height: 130,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadiusDirectional.circular(
-                                                  20),
-                                          color: Colors.white,
-                                          image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: AssetImage(
-                                                  "assets/images/fleur.jpg"))),
-                                    ),
+                                  Container(
+                                    width: 130,
+                                    height: 130,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadiusDirectional.circular(
+                                                20),
+                                        color: Colors.white,
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: AssetImage(
+                                                "assets/images/fleur.jpg"))),
                                   ),
                                   Expanded(
                                     child: Container(

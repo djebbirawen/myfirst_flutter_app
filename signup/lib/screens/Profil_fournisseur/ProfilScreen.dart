@@ -4,16 +4,16 @@ import 'package:signup/screens/Profil/info_card.dart';
 
 // our data
 
-const email = "infolib@gmail.com";
-const phone = "51725907"; // not real number :)
-const location = "Marsa";
-const type_permis = "permis type B";
-const categorie = "livreur autonome";
+const email = "fournisseur@gmail.com";
+const phone = "+03197548"; // not real number :)
+const location = "Oued Elil";
+//const type_permis = "permis type B";
+//const categorie = "personne physique";
 const type_voiture = "Ford camaro";
 const Compte_bancaire = "Num RIB";
 const autre_info = "autre info";
 
-class ProfilPage extends StatelessWidget {
+class ProfilPageF extends StatelessWidget {
   static const IconData airport_shuttle_rounded =
       IconData(0xf54f, fontFamily: 'MaterialIcons');
   @override
@@ -53,13 +53,14 @@ class ProfilPage extends StatelessWidget {
                 Center(
                   child: CircleAvatar(
                     radius: 80,
-                    backgroundImage: AssetImage('assets/images/livreur.png'),
+                    backgroundImage:
+                        AssetImage('assets/images/fournisseur.png'),
                   ),
                 ),
 
                 Container(
                   child: Text(
-                    "Si el Livreur",
+                    "Foulen le Fleuriste",
                     style: TextStyle(
                       height: 1.411764705882353,
                       fontSize: 34.0,
@@ -75,7 +76,7 @@ class ProfilPage extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  "Livreur autonome",
+                  "fleuriste",
                   style: TextStyle(
                       fontSize: 15,
                       color: myGrey,
@@ -154,7 +155,7 @@ class ProfilPage extends StatelessWidget {
                               color: Colors.white30,
                             ),
                           ),
-                          InfoCard(
+/*InfoCard(
                             text: type_permis,
                             icon: Icons.card_membership_rounded,
                           ),
@@ -175,7 +176,7 @@ class ProfilPage extends StatelessWidget {
                             child: Divider(
                               color: Colors.white30,
                             ),
-                          ),
+                          ),*/
                           InfoCard(
                             text: Compte_bancaire,
                             icon: Icons.money,

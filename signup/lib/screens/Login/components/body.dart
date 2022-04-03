@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 //import 'package:flutter_svg/svg.dart';
@@ -11,6 +13,7 @@ import 'package:signup/components/rounded_button.dart';
 import 'package:signup/components/rounded_input_field.dart';
 import 'package:signup/components/rounded_password_field.dart';
 import 'package:signup/constants.dart';
+import 'package:signup/model/login_model.dart';
 import 'package:signup/screens/Login/components/background.dart';
 import 'package:signup/screens/login_success/login_sucess_screen.dart';
 import 'package:signup/screens/users/sign1.dart';
@@ -20,7 +23,13 @@ class Body extends StatelessWidget {
   const Body({
     Key? key,
   }) : super(key: key);
-
+  //erreur
+/* LoginRequestModel requestModel;
+  @override
+  void initState() {
+    final super.initState();
+    requestModel = new LoginRequestModel(email: '', password: '');
+  }*/
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -51,6 +60,7 @@ class Body extends StatelessWidget {
                 children: [
                   // SizedBox(height: size.height * 0.01),
                   TextFormField(
+                    //  onSaved: (input) => requestModel.email ,
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
@@ -69,6 +79,7 @@ class Body extends StatelessWidget {
                             borderSide: BorderSide(color: kPrimaryColor))),
                   ),
                   TextField(
+                    //   onSaved:(input) => requestModel.password ,
                     decoration: InputDecoration(
                         labelText: 'Mot De Passe  ',
                         labelStyle: TextStyle(
