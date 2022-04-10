@@ -1,4 +1,4 @@
-class LoginResponseModel {
+/*class LoginResponseModel {
   final String token;
   final String error;
 
@@ -26,3 +26,4 @@ class LoginRequestModel {
     return map;
   }
 }
+*/

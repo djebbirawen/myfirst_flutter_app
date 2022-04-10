@@ -212,6 +212,17 @@ class _BodyState extends State<Body> {
             RoundedButton(
               text: "Sign Up",
               press: () {
+                /*AuthService().login(email, password).then((val) {
+                    
+                      Fluttertoast.showToast(
+                          msg:val.data['msg'],
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0);
+                    
+                  });*/
                 Navigator.push(
                   context,
                   MaterialPageRoute(

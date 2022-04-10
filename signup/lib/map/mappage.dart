@@ -16,7 +16,7 @@ class _mapScreenState extends State<mapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         body: GoogleMap(
       myLocationButtonEnabled: false,
       zoomControlsEnabled: false,

@@ -1,35 +1,34 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lottie/lottie.dart';
-//import 'package:flutter_svg/svg.dart';
 
 //import 'package:lottie/lottie.dart';
 //import 'package:signup/components/already_have_an_account_acheck.dart';
 
 import 'package:signup/components/rounded_button.dart';
-import 'package:signup/components/rounded_input_field.dart';
-import 'package:signup/components/rounded_password_field.dart';
+
 import 'package:signup/constants.dart';
 import 'package:signup/model/login_model.dart';
 import 'package:signup/screens/Login/components/background.dart';
 import 'package:signup/screens/login_success/login_sucess_screen.dart';
 import 'package:signup/screens/users/sign1.dart';
+import 'package:signup/services/authservice.dart';
 //import 'package:signup/screens/Signup/signup_screen.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({
     Key? key,
   }) : super(key: key);
-  //erreur
-/* LoginRequestModel requestModel;
+
   @override
-  void initState() {
-    final super.initState();
-    requestModel = new LoginRequestModel(email: '', password: '');
-  }*/
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  //erreur
+  var email, password, token;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -60,40 +59,44 @@ class Body extends StatelessWidget {
                 children: [
                   // SizedBox(height: size.height * 0.01),
                   TextFormField(
-                    //  onSaved: (input) => requestModel.email ,
-                    validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                        labelText: 'Email',
-                        labelStyle: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey),
-                        // hintText: 'EMAIL',
-                        // hintStyle: ,
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
+                      //  onSaved: (input) => requestModel.email ,
+                      validator: (String? value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                          labelText: 'Email',
+                          labelStyle: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                          // hintText: 'EMAIL',
+                          // hintStyle: ,
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: kPrimaryColor))),
+                      onChanged: (val) {
+                        email = val;
+                      }),
                   TextField(
-                    //   onSaved:(input) => requestModel.password ,
-                    decoration: InputDecoration(
-                        labelText: 'Mot De Passe  ',
-                        labelStyle: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey),
-                        suffixIcon: Icon(
-                          Icons.visibility,
-                          color: kPrimaryLightColor,
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: kPrimaryColor))),
-                    obscureText: true,
-                  ),
+                      //   onSaved:(input) => requestModel.password ,
+                      decoration: InputDecoration(
+                          labelText: 'Mot De Passe  ',
+                          labelStyle: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                          suffixIcon: Icon(
+                            Icons.visibility,
+                            color: kPrimaryLightColor,
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: kPrimaryColor))),
+                      obscureText: true,
+                      onChanged: (val) {
+                        password = val;
+                      }),
                 ],
               ),
             ),
@@ -121,14 +124,26 @@ class Body extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return userscreen();
-                        },
-                      ),
-                    );
+                    AuthService().login(email, password).then((val) {
+                      if (val.data['success']) {
+                        token = val.data['token'];
+                        Fluttertoast.showToast(
+                            msg: 'Authentificated',
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            backgroundColor: Colors.red,
+                            textColor: Colors.white,
+                            fontSize: 16.0);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return userscreen();
+                            },
+                          ),
+                        );
+                      }
+                    });
                   },
                   child: Text(
                     "Sign Up",
