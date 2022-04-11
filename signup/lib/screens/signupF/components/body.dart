@@ -18,6 +18,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  var nom, prenom, adresse, email, password, status, tel, cin;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -69,7 +70,9 @@ class _BodyState extends State<Body> {
 
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
+                            onChanged: (val) {
+                        nom = val;
+                 
 
                   TextFormField(
                     validator: (String? value) {
@@ -86,7 +89,9 @@ class _BodyState extends State<Body> {
                             color: Colors.grey),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
+                            onChanged: (val) {
+                        prenom = val;
+               
                   TextFormField(
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
@@ -104,7 +109,9 @@ class _BodyState extends State<Body> {
                         // hintStyle: ,
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
+                            onChanged: (val) {
+                        email= val;
+                
                   TextFormField(
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
@@ -120,7 +127,9 @@ class _BodyState extends State<Body> {
                             color: Colors.grey),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
+                            onChanged: (val) {
+                        adresse = val;
+                 
                   Center(
                       child: DropdownButtonFormField(
                     value: dropdownValue,
@@ -140,7 +149,7 @@ class _BodyState extends State<Body> {
                         child: Text(valueItem),
                       );
                     }).toList(),
-                  )),
+                  ));
 
                   TextFormField(
                     validator: (String? value) {
@@ -157,7 +166,9 @@ class _BodyState extends State<Body> {
                             color: Colors.grey),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
+                            onChanged: (val) {
+                        nom = val;
+                              }  );
                   TextFormField(
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
@@ -173,8 +184,11 @@ class _BodyState extends State<Body> {
                             color: Colors.grey),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
-                  TextField(
+                            onChanged: (val) {
+                        nom = val;
+                            });
+                 TextField(
+                   
                     decoration: InputDecoration(
                         labelText: 'Mot De Passe  ',
                         labelStyle: TextStyle(
@@ -187,9 +201,12 @@ class _BodyState extends State<Body> {
                         ),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                    obscureText: true,
-                  ),
-                  // ignore: prefer_const_literals_to_create_immutables
+                                obscureText: true,
+                             onChanged: (val) {
+                        password= val;
+                      }),
+                
+               
                 ],
               ),
             ),

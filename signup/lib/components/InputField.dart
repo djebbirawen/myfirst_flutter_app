@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class InputField extends StatelessWidget {
+  var numcommande, adressedepart, adressearrive, status; 
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,7 +19,9 @@ class InputField extends StatelessWidget {
                 hintText: "Entrer votre commande",
                 hintStyle: TextStyle(color: Colors.grey),
                 border: InputBorder.none),
+                
           ),
+          
         ),
         Container(
           padding: const EdgeInsets.all(10),

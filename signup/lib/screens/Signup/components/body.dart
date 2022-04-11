@@ -29,7 +29,7 @@ class _BodyState extends State<Body> {
   final _ConCIN = TextEditingController();
   final _Contlf = TextEditingController();
   final _ConPass = TextEditingController();
-
+  var nom , prenom , adresse , email , password , status , tel ,  voiture , cin ;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -79,7 +79,12 @@ class _BodyState extends State<Body> {
                             color: Colors.grey),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
+                            
+                             onChanged: (val) {
+                        nom = val;
+                      }),
+                
+               
 
                   TextFormField(
                     controller: _ConPren,
@@ -97,7 +102,10 @@ class _BodyState extends State<Body> {
                             color: Colors.grey),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
+                             onChanged: (val) {
+                       prenom = val;
+                      }),
+                 
                   TextFormField(
                     controller: _ConEmail,
                     validator: (String? value) {
@@ -133,7 +141,10 @@ class _BodyState extends State<Body> {
                             color: Colors.grey),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
+                             onChanged: (val) {
+                      adresse = val;
+                      }),
+                 
                   Center(
                       child: DropdownButtonFormField(
                     value: dropdownValue,
@@ -171,7 +182,10 @@ class _BodyState extends State<Body> {
                             color: Colors.grey),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
+                             onChanged: (val) {
+                        cin = val;
+                      }),
+                  
                   TextFormField(
                     controller: _Contlf,
                     validator: (String? value) {
@@ -188,7 +202,10 @@ class _BodyState extends State<Body> {
                             color: Colors.grey),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                  ),
+                             onChanged: (val) {
+                       tel = val;
+                      }),
+                
                   TextField(
                     controller: _ConPass,
                     decoration: InputDecoration(
@@ -203,8 +220,12 @@ class _BodyState extends State<Body> {
                         ),
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: kPrimaryColor))),
-                    obscureText: true,
-                  ),
+                                obscureText: true,
+                             onChanged: (val) {
+                        password= val;
+                      }),
+                
+                
                   // ignore: prefer_const_literals_to_create_immutables
                 ],
               ),
