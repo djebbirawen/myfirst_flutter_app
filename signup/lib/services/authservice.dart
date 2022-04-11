@@ -5,9 +5,10 @@ import 'package:fluttertoast/fluttertoast.dart';
 class AuthService {
   Dio dio = new Dio();
 
-  login(email, password) async {
+/////////////// Login fournisseur  ///////////////////////////////
+  loginFr(email, password) async {
     try {
-      return await dio.post('http://localhost:5000/admin/login',
+      return await dio.post('http://localhost:5000/clients/login',
           data: {"email": email, "password": password},
           options: Options(contentType: Headers.formUrlEncodedContentType));
     } on DioError catch (e) {
@@ -20,4 +21,35 @@ class AuthService {
           fontSize: 16.0);
     }
   }
+/////////////// Login Livreurr  ///////////////////////////////////////////////
+
+  loginLiv(email, password) async {
+    try {
+      return await dio.post('http://localhost:5000/livreur/login',
+          data: {"email": email, "password": password},
+          options: Options(contentType: Headers.formUrlEncodedContentType));
+    } on DioError catch (e) {
+      Fluttertoast.showToast(
+          msg: e.response?.data['msg'],
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+  }
+
+///////////////////// SignUp fournisseur ///////////////////////
+
+//AddClient( )
+
+
+
+
+
+
+
+
+
+
 }

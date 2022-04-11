@@ -10,12 +10,11 @@ import 'package:lottie/lottie.dart';
 import 'package:signup/components/rounded_button.dart';
 
 import 'package:signup/constants.dart';
-import 'package:signup/model/login_model.dart';
+
 import 'package:signup/screens/Login/components/background.dart';
-import 'package:signup/screens/login_success/login_sucess_screen.dart';
+
 import 'package:signup/screens/users/sign1.dart';
 import 'package:signup/services/authservice.dart';
-//import 'package:signup/screens/Signup/signup_screen.dart';
 
 class Body extends StatefulWidget {
   const Body({
@@ -103,7 +102,7 @@ class _BodyState extends State<Body> {
             RoundedButton(
               text: "Login",
               press: () {
-                AuthService().loginFr(email, password).then((val) {
+                AuthService().loginLiv(email, password).then((val) {
                   if (val.data['success']) {
                     token = val.data['token'];
                     Fluttertoast.showToast(
